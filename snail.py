@@ -23,3 +23,51 @@
 #     for j in i:
 #         print('%5d' %j , end=' ')
 #     print()
+n = int(input())
+snail = [[0]*n for i in range(n)]
+cnt = n*n
+inital = 0
+y = n
+h = n
+
+# while y > 0 and h > 0:
+#     for i in range(inital, inital+h):
+#         snail[inital][i] = cnt
+#         cnt -= 1
+#     for i in range(inital+1, inital+y):
+#         snail[i][inital+h-1] = cnt
+#         cnt -= 1
+#     for i in range(inital+h-2, inital-1, -1):
+#         snail[inital+y-1][i] = cnt
+#         cnt -= 1
+#     for i in range(inital+y-2, inital, -1):
+#         snail[i][inital] = cnt
+#         cnt -= 1
+
+#     inital += 1
+#     y -= 2
+#     h -= 2
+
+#90도 회전
+while y > 0 and h > 0:
+    for i in range(inital, inital+y):
+        snail[i][inital+h-1] = cnt
+        cnt -= 1
+    for i in range(inital+h-2, inital-1, -1):
+        snail[inital+y-1][i] = cnt
+        cnt -= 1
+    for i in range(inital+y-2, inital, -1):
+        snail[i][inital] = cnt
+        cnt -= 1
+    for i in range(inital, inital+h-1):
+        snail[inital][i] = cnt
+        cnt -= 1
+
+    inital += 1
+    y -= 2
+    h -= 2
+
+for i in range(0, n):
+    for j in range(0, n):
+        print("%3d" % snail[i][j], end=' ')
+    print()
