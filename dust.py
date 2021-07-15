@@ -24,6 +24,6 @@ if 150<dust: #150 초과
 elif 80<dust: #150이하, 80초과
     print('나쁨')
 elif 30<dust: #80이하, 30초과
-    print('보통')
+    print('SoSo')
 else:#30이하
     print('Good')
